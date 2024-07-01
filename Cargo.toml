@@ -22,8 +22,8 @@ path = "src/lib.rs"
 
 [features]
 default = []
-signature-verifier = ["dep:ring", "hyper-rustls/ring", "rustls/ring"]
-hyper = ["dep:tokio", "dep:http-body-util", "dep:hyper", "dep:hyper-rustls", "dep:hyper-util", "dep:tokio-stream", "dep:tokio-tungstenite", "dep:signal-hook", "dep:signal-hook-tokio", "signature-verifier"]
+signature-verifier = ["dep:ring"]
+hyper = ["dep:tokio", "dep:http-body-util", "dep:hyper", "dep:hyper-rustls", "dep:rustls", "dep:hyper-util", "dep:tokio-stream", "dep:tokio-tungstenite", "dep:signal-hook", "dep:signal-hook-tokio", "signature-verifier", "hyper-rustls/ring", "rustls/ring"]
 axum = ["hyper", "dep:axum", "dep:tower"]
 
 [dependencies]
@@ -39,6 +39,7 @@ base64 = "0.22"
 hex = "0.4"
 tracing = "0.1"
 ring = { version = "0.17", optional = true }
+rustls = {version = "0.23.10", optional = true }
 lazy_static = "1.4"
 http = "1.1"
 async-trait = "0.1"
